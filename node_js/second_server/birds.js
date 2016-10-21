@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 });
 // define the about route
 router.get('/about', function(req, res) {
-    res.send('About birds');
+    res.send('About birds - new text test');
 });
 
 module.exports = router;
