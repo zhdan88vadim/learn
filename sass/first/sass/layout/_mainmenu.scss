@@ -1,0 +1,53 @@
+.menu-holder {
+  padding: 24px 0px 24px 0px;
+}
+
+.main-menu {
+
+  border: solid #CFCFCF;
+  border-width: 1px 0 1px 0;
+  display: inline-block;
+
+}
+
+.menu-holder li {
+  list-style-type: none;
+  float: left;
+
+}
+
+.menu-holder li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+
+  &.highlight a {
+    color: #FFF;
+    background: #F7AFB0;
+  }
+}
+
+.menu-holder li a {
+  color: #000;
+  text-decoration: none;
+  padding-top: 6px;
+  padding-left: 10px;
+  padding-bottom: 6px;
+  padding-right: 10px;
+
+  &:hover {
+    color: #FFF;
+    background: #F7AFB0;
+  }
+}
+
+
+.nav-select {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .nav-select {
+    display: none;
+  }
+}
+

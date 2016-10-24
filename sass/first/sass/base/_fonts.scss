@@ -1,3 +1,27 @@
 // -----------------------------------------------------------------------------
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
+
+.main-menu li {
+  font-size: 1.4rem;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.blog-posts .entry-title a {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.blog-posts .item-label {
+  font-weight: 700;
+  font-size: 11px;
+  font-family: 'Lato', sans-serif;
+}
+
+.blog-posts .entry-short-description {
+  font-family: georgia;
+  font-size: 1.4rem;
+}

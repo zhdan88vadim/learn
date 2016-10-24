@@ -7,6 +7,7 @@
  */
 html {
   box-sizing: border-box;
+  font-size: 10px;
 }
 
 /**
@@ -17,13 +18,13 @@ html {
  */
 *, *::before, *::after {
   box-sizing: inherit;
-} 
+}
 
 /**
  * Basic styles for links
  */
 a {
-  color: $brand-color;
+  //color: $brand-color;
   text-decoration: none;
 
   @include on-event {
@@ -32,3 +33,31 @@ a {
   }
 }
 
+.ct-wrapper {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.social-holder {
+  width: 200px;
+  float: left;
+}
+
+.social-networks {
+  width: 180px;
+}
+
+.header-wrapper:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.logo-holder {
+  width: 420px;
+  float: left;
+  margin-left: 150px;
+  text-align: center;
+}
