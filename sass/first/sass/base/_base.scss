@@ -24,7 +24,7 @@ html {
  * Basic styles for links
  */
 a {
-  //color: $brand-color;
+  color: #e05a65;
   text-decoration: none;
 
   @include on-event {
@@ -34,7 +34,7 @@ a {
 }
 
 .ct-wrapper {
-  width: 980px;
+  width: 1024px;
   margin: 0 auto;
 }
 
@@ -47,6 +47,13 @@ a {
   width: 180px;
 }
 
+.header-wrapper {
+  width: 980px;
+  padding: 24px 0px 24px 0px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
 .header-wrapper:after {
   content: ".";
   display: block;
@@ -55,9 +62,12 @@ a {
   visibility: hidden;
 }
 
-.logo-holder {
-  width: 420px;
+.main-wrapper {
   float: left;
-  margin-left: 150px;
-  text-align: center;
+  width: 680px;
+}
+
+.sidebar-wrapper {
+  float: right;
+  width: 340px;
 }

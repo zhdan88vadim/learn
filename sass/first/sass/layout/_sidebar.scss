@@ -1,0 +1,38 @@
+.sidebar {
+
+  padding: 0 0 0 30px;
+
+  .widget {
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    //font-weight: 600;
+    //letter-spacing: 0.5px;
+    //font-weight: 600;
+    margin: 0 0 20px;
+    font-size: 2.0rem;
+    padding: 10px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid #CFCFCF;
+  }
+
+  .about-us {
+    font-size: 1.4rem;
+  }
+
+  .cloud-labels {
+    a {
+      color: #878787;
+      border: 3px double #eee;
+      padding: 7px 8px;
+      text-transform: capitalize;
+      transition: all .4s;
+      display: inline-block;
+    }
+    li {
+      float: left;
+      margin: 0 5px 5px 0;
+    }
+  }
+}

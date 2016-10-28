@@ -53,4 +53,18 @@
   li {
     float: left;
   }
+
+  .logo-holder {
+    width: 350px;
+    float: left;
+    margin-left: 100px;
+    text-align: center;
+  }
+
+  .logo-holder h1 {
+    font-variant: small-caps;
+    font-size: 48px;
+    line-height: 50px;
+    font-family: Tahoma, Geneva, sans-serif;
+  }
 }

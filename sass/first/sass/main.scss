@@ -21,12 +21,14 @@
 @import
   'layout/header',
   'layout/footer',
+  'layout/sidebar',
   'layout/mainmenu';
 
 // 5. Components
 @import
   'components/button',
   'components/blog',
+  'components/search',
   'components/slider';
 
 // 6. Page-specific styles
