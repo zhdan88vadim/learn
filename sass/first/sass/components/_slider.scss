@@ -1,5 +1,134 @@
+//.slider {
+//  width: 660px;
+//  height: 400px;
+//  background: lightslategray;
+//}
+//
+
 .slider {
-  width: 660px;
-  height: 400px;
-  background: lightslategray;
+  height: 400px !important;
+}
+
+ul.bjqs {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0 0px 0;
+  overflow: hidden;
+  height: 385.333333px !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+li.bjqs-slide {
+  position: absolute;
+  display: none;
+  list-style: none;
+  height: 99% !important;
+  width: 99.5% !important;
+}
+
+ul.bjqs-controls {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+}
+
+li.slider-content img {
+  width: 100%;
+}
+
+ul.bjqs-controls.v-centered li.bjqs-prev a, ul.bjqs-controls.v-centered li.bjqs-next a {
+  display: none;
+}
+
+ol.bjqs-markers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+ol.bjqs-markers.h-centered {
+  text-align: center;
+  margin-top: -34px;
+  position: relative;
+  height: 34px;
+  padding: 7px 4px 7px 4px;
+  text-align: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.64);
+  left: 0px !important;
+}
+
+ol.bjqs-markers li {
+  display: inline;
+}
+
+ol.bjqs-markers li a {
+  display: inline-block;
+}
+
+ul.bjqs-controls.v-centered li a {
+  display: none;
+}
+
+ul.bjqs-controls.v-centered li a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.featured-title {
+  position: absolute;
+  bottom: 45px;
+  //width: 93.9%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  font-size: 25px;
+  font-family: Lato;
+  font-weight: 300;
+  padding: 20px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.featured-posts-section {
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.featured-title a {
+  color: #fff;
+}
+
+.status-msg-wrap {
+  display: none;
+}
+
+.fpimg {
+  width: 100% !important;
+  height: 380px;
+}
+
+ol.bjqs-markers li a {
+  background: #444444;
+  color: #fff;
+  margin: 5px;
+  height: 10px;
+  border-radius: 240px;
+  text-decoration: none;
+  text-indent: -7008px;
+  width: 10px;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover {
+  background: #FFEC94;
+}
+
+p.bjqs-caption {
+  background: rgba(255, 255, 255, 0.5);
 }
