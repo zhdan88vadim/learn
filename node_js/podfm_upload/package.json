@@ -1,0 +1,18 @@
+{
+    "name": "podfm_uploader",
+    "version": "1.0.0",
+    "description": "",
+    "main": "podfm_upload.js",
+    "dependencies": {
+        "body-parser": "^1.15.2",
+        "cookie-parser": "^1.4.3",
+        "request": ""
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node podfm_upload.js"
+    },
+    "author": "vadim",
+    "license": "ISC"
+}
