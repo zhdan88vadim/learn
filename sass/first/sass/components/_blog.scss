@@ -5,10 +5,11 @@
 .blog-posts img {
   max-width: 100%;
   min-width: 100%;
+  border-radius: 4px;
 }
 
 .blog-posts .wrap-img {
-  height: 210px;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -25,7 +26,7 @@
 .blog-posts li {
   //border: 1px solid;
   display: inline-block;
-  width: 322px;
+  width: 320px;
   height: 364px;
   position: relative;
   margin-right: 16px;

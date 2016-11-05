@@ -35,4 +35,39 @@
       margin: 0 5px 5px 0;
     }
   }
+
+  .popular-posts ul li {
+    margin-left: 0 !important;
+    overflow: hidden;
+    padding: 7px 0 !important;
+    -webkit-transition: all 0.25s linear 0s;
+    -moz-transition: all 0.25s linear 0s;
+    -o-transition: all 0.25s linear 0s;
+    transition: all 0.25s linear 0s;
+    counter-increment: trackit;
+
+  }
+
+  .popular-posts ul li:before {
+
+    content: counters(trackit, ".");
+    padding: 0 .1em 0 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #C4C4C4;
+    float: left;
+    margin-right: 20px;
+
+  }
+
+  .popular-posts a {
+    color: #959595;
+    font-family: sans-serif;
+    text-decoration: none;
+    display: block;
+    float: left;
+    width: 270px;
+    margin-top: 8px;
+  }
+
 }
