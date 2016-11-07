@@ -1,0 +1,33 @@
+
+
+
+
+@media (max-width: 1023px) {
+
+  .main-wrapper {
+    width: 100%;
+    float: none;
+  }
+
+  .header-wrapper {
+    width: 100%;
+  }
+
+  .ct-wrapper {
+    width: 100%;
+  }
+  .sidebar-wrapper {
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .sidebar-wrapper {
+
+  }
+
+
+}

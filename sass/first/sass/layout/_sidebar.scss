@@ -4,6 +4,7 @@
 
   .widget {
     margin-bottom: 16px;
+    clear: both;
   }
 
   h2 {
@@ -21,18 +22,16 @@
     font-size: 1.4rem;
   }
 
-  .cloud-labels {
-    a {
-      color: #878787;
-      border: 3px double #eee;
-      padding: 7px 8px;
-      text-transform: capitalize;
-      transition: all .4s;
-      display: inline-block;
-    }
-    li {
+  .cloud-authors {
+
+    img {
       float: left;
-      margin: 0 5px 5px 0;
+      margin-right: 5px;
+      height: 40px;
+      width: 40px;
+    }
+    .title {
+      line-height: 44px;
     }
   }
 
@@ -52,7 +51,7 @@
 
     content: counters(trackit, ".");
     padding: 0 .1em 0 0;
-    font-size: 20px;
+    font-size: 2.0rem;
     font-weight: bold;
     color: #C4C4C4;
     float: left;
@@ -70,4 +69,20 @@
     margin-top: 8px;
   }
 
+}
+
+
+.cloud-labels {
+  a {
+    color: #878787;
+    border: 3px double #eee;
+    padding: 7px 8px;
+    text-transform: capitalize;
+    transition: all .4s;
+    display: inline-block;
+  }
+  li {
+    float: left;
+    margin: 0 5px 5px 0;
+  }
 }
