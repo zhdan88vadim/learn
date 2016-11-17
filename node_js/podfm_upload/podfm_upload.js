@@ -156,6 +156,10 @@ function login(username, password) {
                     request.post(loginArgs,
                         (error, response, body) => {
                             if (!error) {
+                                if (response.headers['location'] === '/loginform/') {
+                                    reject('login error');
+                                }
+
                                 resolve(response.headers['set-cookie']);
                             } else {
                                 reject(response.statusCode + " through login()");
@@ -171,16 +175,16 @@ function login(username, password) {
 login(USERNAME, PASSWORD)
     .then(cookies => {
 
-        getFileNamePodcast(cookies, 'https://zhdan88vadim.podfm.ru/first/2/').then(fileUrl => {
-            console.log(fileUrl);
-        });
+        // getFileNamePodcast(cookies, 'https://zhdan88vadim.podfm.ru/first/2/').then(fileUrl => {
+        //     console.log(fileUrl);
+        // });
 
-        // upload(cookies).then(fileId => publish(cookies, fileId).then(podcastUrl => {
-        //     getFileNamePodcast(podcastUrl).then(fileUrl => {
+        upload(cookies).then(fileId => publish(cookies, fileId).then(podcastUrl => {
+            getFileNamePodcast(podcastUrl).then(fileUrl => {
 
-        //         console.log(fileUrl);
-        //     });
-        // }));
+                console.log(fileUrl);
+            });
+        }));
     })
     .catch(err => {
         console.error(err);
