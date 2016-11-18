@@ -1,21 +1,26 @@
 var fs = require('fs');
 var cheerio = require('cheerio')
 var request = require('request');
-request = request.defaults({ jar: true });
+
+//request = request.defaults({ jar: true });
+//var request = request.defaults({ 'proxy': 'http://127.0.0.1:8888' });
 
 const USERNAME = 'zhdan88vadim';
 const PASSWORD = 'wsxWSXqaz!RT34vTD';
+const USER_AGENT_STRING = 'Mozilla/5.0 (Windows NT 6.1)';
+
+//  When user is login the cookies don't changes.
+
+// !! Warning !! HTTP connections
+
 const SITE_URL = 'http://podfm.ru';
 const LOGIN_URL = SITE_URL + '/login/';
-const UPLOAD_URL = 'https://' + USERNAME + '.podfm.ru/actionuploadpodfile/';
-const PUBLISH_URL = 'https://' + USERNAME + '.podfm.ru/actionpodcastadd/';
-const LOAD_URL = 'https://' + USERNAME + '.podfm.ru/';
+const UPLOAD_URL = 'http://' + USERNAME + '.podfm.ru/actionuploadpodfile/';
+const PUBLISH_URL = 'http://' + USERNAME + '.podfm.ru/actionpodcastadd/';
+const LOAD_URL = 'http://' + USERNAME + '.podfm.ru/';
 
 
 function getParameterByName(name, url) {
-    // if (!url) {
-    //     url = window.location.href;
-    // }
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
@@ -29,8 +34,8 @@ function getFileNamePodcast(cookies, url) {
     var loadArgs = {
         url: url,
         headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1)',
-            'Cookie': cookies.join(';')
+            'User-Agent': USER_AGENT_STRING,
+            'Cookie': cookies.join('; ')
         }
     }
 
@@ -56,8 +61,8 @@ function publish(cookies, fileId, data) {
     var uploadArgs = {
         url: PUBLISH_URL,
         headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1)',
-            'Cookie': cookies.join(';')
+            'User-Agent': USER_AGENT_STRING,
+            'Cookie': cookies.join('; ')
         },
         formData: {
             'id': '',
@@ -90,7 +95,8 @@ function publish(cookies, fileId, data) {
         request.post(uploadArgs, (error, response, body) => {
 
             if (!error) {
-                resolve(fileId);
+                var location = response.headers['location'];
+                resolve(location);
             } else {
                 reject(response.statusCode + " through publish()");
             }
@@ -103,19 +109,21 @@ function upload(cookies, localFileName) {
     var uploadArgs = {
         url: UPLOAD_URL,
         headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1)',
-            'Cookie': cookies.join(';')
+            'User-Agent': USER_AGENT_STRING,
+            'Content-Type': 'multipart/form-data',
+            'Cookie': cookies.join('; ')
         },
         formData: {
             'todo': 'step1_upload',
             'pod_id': '',
-            file: fs.createReadStream(localFileName)
+            'file': fs.createReadStream(localFileName)
         }
     }
 
     return new Promise((resolve, reject) => {
 
         request.post(uploadArgs, (error, response, body) => {
+
             if (!error) {
                 var location = response.headers['location'];
                 var fileId = getParameterByName('file_id', location);
@@ -147,7 +155,7 @@ function login(username, password) {
                         headers: {
                             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1)',
                             'Content-Type': 'application/x-www-form-urlencoded',
-                            'Cookie': cookies.join(';')
+                            'Cookie': cookies.join('; ')
                         },
                         form: {
                             'a_todo': 'login_check',
@@ -163,6 +171,9 @@ function login(username, password) {
                                 if (response.headers['location'] === '/loginform/') {
                                     reject('login error');
                                 }
+
+                                //cookies[0] = response.headers['set-cookie'][0];
+                                //resolve(cookies);
 
                                 resolve(response.headers['set-cookie']);
                             } else {
@@ -191,26 +202,6 @@ var podcastPublishData = {
 // https://nodejs.org/api/fs.html#fs_fs_access_path_mode_callback
 
 
-login(USERNAME, PASSWORD)
-    .then(cookies => {
-
-        getFileNamePodcast(cookies, 'https://zhdan88vadim.podfm.ru/first/2/').then(fileUrl => {
-            console.log(fileUrl);
-        });
-
-        // upload(cookies, localFileName).then(fileId => publish(cookies, fileId, podcastPublishData).then(podcastUrl => {
-        //     console.log('podcastUrl: ' + podcastUrl);
-
-        //     getFileNamePodcast(podcastUrl).then(fileUrl => {
-        //         console.log('File successful uploaded.');
-        //         console.log('fileUrl: ' + fileUrl);
-        //     });
-        // }));
-    })
-    .catch(err => {
-        console.error(err);
-    });
-
 
 fs.access(localFileName, fs.constants.R_OK, function(err) {
 
@@ -223,9 +214,34 @@ fs.access(localFileName, fs.constants.R_OK, function(err) {
         }
     }
 
+
     // my code
 
+    login(USERNAME, PASSWORD)
+        .then(cookies => {
+
+            upload(cookies, localFileName).then(fileId => publish(cookies, fileId, podcastPublishData).then(podcastPage => {
+
+                console.log('podcast page: ' + podcastPage);
+
+                getFileNamePodcast(cookies, podcastPage).then(mp3FileUrl => {
+                    console.log('File successful uploaded.');
+                    console.log('mp3FileUrl: ' + mp3FileUrl);
+                }).catch(err => {
+                    console.error(err);
+                });
+            }));
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
 });
+
+
+
+
+
 
 
 
