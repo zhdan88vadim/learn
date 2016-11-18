@@ -5,7 +5,8 @@ request = request.defaults({ jar: true });
 
 const USERNAME = 'zhdan88vadim';
 const PASSWORD = 'wsxWSXqaz!RT34vTD';
-const LOGIN_URL = 'https://podfm.ru/login/';
+const SITE_URL = 'http://podfm.ru';
+const LOGIN_URL = SITE_URL + '/login/';
 const UPLOAD_URL = 'https://' + USERNAME + '.podfm.ru/actionuploadpodfile/';
 const PUBLISH_URL = 'https://' + USERNAME + '.podfm.ru/actionpodcastadd/';
 const LOAD_URL = 'https://' + USERNAME + '.podfm.ru/';
@@ -42,13 +43,15 @@ function getFileNamePodcast(cookies, url) {
 
                 resolve(fileUrl);
             } else {
-                reject(response.statusCode + " through login()");
+                reject(response.statusCode + " through getFileNamePodcast()");
             }
         });
     });
 }
 
-function publish(cookies, fileId) {
+function publish(cookies, fileId, data) {
+
+    var date = new Date();
 
     var uploadArgs = {
         url: PUBLISH_URL,
@@ -62,17 +65,17 @@ function publish(cookies, fileId) {
             'file_id': fileId,
             'make_slide': 'off',
             'write_tags': 1,
-            'day': 17,
-            'month': 11,
-            'year': 2017,
-            'hour': 12,
-            'min': 0,
-            'number': 'this is my number',
-            'name': 'this is my name',
-            'short_descr': 'this is short_descr',
-            'body': 'this is my body',
+            'day': date.getDate(),
+            'month': date.getMonth() + 1,
+            'year': date.getFullYear(),
+            'hour': date.getHours(),
+            'min': date.getMinutes(),
+            'number': data.number,
+            'name': data.name,
+            'short_descr': data.short_descr,
+            'body': data.body,
             'format': '',
-            'text_descr': 'this is text_descr',
+            'text_descr': data.text_descr,
             'image': '',
             'image_alt': '',
             'lent_id': 62977,
@@ -89,13 +92,13 @@ function publish(cookies, fileId) {
             if (!error) {
                 resolve(fileId);
             } else {
-                reject(response.statusCode + " through login()");
+                reject(response.statusCode + " through publish()");
             }
         });
     });
 }
 
-function upload(cookies) {
+function upload(cookies, localFileName) {
 
     var uploadArgs = {
         url: UPLOAD_URL,
@@ -106,22 +109,23 @@ function upload(cookies) {
         formData: {
             'todo': 'step1_upload',
             'pod_id': '',
-            file: fs.createReadStream(__dirname + '/Sound.mp3')
+            file: fs.createReadStream(localFileName)
         }
     }
 
     return new Promise((resolve, reject) => {
 
         request.post(uploadArgs, (error, response, body) => {
-            var location = response.headers['location'];
-            var fileId = getParameterByName('file_id', location);
-
-            console.log({ fileId });
-
             if (!error) {
+                var location = response.headers['location'];
+                var fileId = getParameterByName('file_id', location);
+
+                if (!fileId) {
+                    reject('upload error');
+                }
                 resolve(fileId);
             } else {
-                reject(response.statusCode + " through login()");
+                reject(response.statusCode + " through upload()");
             }
         });
     });
@@ -133,7 +137,7 @@ function login(username, password) {
 
     return new Promise((resolve, reject) => {
 
-        request.get('http://podfm.ru/',
+        request.get(SITE_URL,
             (error, response, body) => {
                 if (!error && response.statusCode === 200) {
                     cookies = response.headers['set-cookie'];
@@ -172,23 +176,59 @@ function login(username, password) {
     });
 }
 
+
+
+var localFileName = __dirname + '/Sound.mp3';
+
+var podcastPublishData = {
+    'number': 'my user number',
+    'name': 'my user name',
+    'short_descr': 'my user short description',
+    'body': 'my user body',
+    'text_descr': 'my user text descr',
+}
+
+// https://nodejs.org/api/fs.html#fs_fs_access_path_mode_callback
+
+
 login(USERNAME, PASSWORD)
     .then(cookies => {
 
-        // getFileNamePodcast(cookies, 'https://zhdan88vadim.podfm.ru/first/2/').then(fileUrl => {
-        //     console.log(fileUrl);
-        // });
+        getFileNamePodcast(cookies, 'https://zhdan88vadim.podfm.ru/first/2/').then(fileUrl => {
+            console.log(fileUrl);
+        });
 
-        upload(cookies).then(fileId => publish(cookies, fileId).then(podcastUrl => {
-            getFileNamePodcast(podcastUrl).then(fileUrl => {
+        // upload(cookies, localFileName).then(fileId => publish(cookies, fileId, podcastPublishData).then(podcastUrl => {
+        //     console.log('podcastUrl: ' + podcastUrl);
 
-                console.log(fileUrl);
-            });
-        }));
+        //     getFileNamePodcast(podcastUrl).then(fileUrl => {
+        //         console.log('File successful uploaded.');
+        //         console.log('fileUrl: ' + fileUrl);
+        //     });
+        // }));
     })
     .catch(err => {
         console.error(err);
     });
+
+
+fs.access(localFileName, fs.constants.R_OK, function(err) {
+
+    if (err) {
+        if (err.code === "ENOENT") {
+            console.error('sound file is not exists');
+            return;
+        } else {
+            throw err;
+        }
+    }
+
+    // my code
+
+});
+
+
+
 
 
 
