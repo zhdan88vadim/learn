@@ -1,8 +1,16 @@
-
-
-
+//@media (max-width: 1023px) {
+//
+//  .ct-wrapper {
+//    width: 90%;
+//  }
+//}
 
 @media (max-width: 1023px) {
+
+  .menu-holder li {
+    //width: 100px;
+    //clear: both;
+  }
 
   .main-wrapper {
     width: 100%;
@@ -15,11 +23,25 @@
 
   .ct-wrapper {
     width: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
   }
   .sidebar-wrapper {
     width: 100%;
     float: none;
     clear: both;
+  }
+
+  .footer .footer-section {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .blog-posts li {
+    width: 100%;
   }
 }
 
@@ -29,5 +51,15 @@
 
   }
 
+}
+
+@media (max-width: 1023px) {
+  html {
+    font-size: 14px;
+  }
+
+  a {
+    font-size: 1.8rem !important;
+  }
 
 }

@@ -1,5 +1,9 @@
 .blog-posts {
   margin-top: 20px;
+
+  ul li:nth-child(odd){
+    margin-right: 4%;
+  }
 }
 
 .blog-posts img {
@@ -26,11 +30,12 @@
 .blog-posts li {
   //border: 1px solid;
   display: inline-block;
-  width: 320px;
+  //width: 320px;
   height: 364px;
   position: relative;
-  margin-right: 16px;
+  //margin-right: 16px;
   float: left;
+  width: 48%;
 }
 
 .blog-posts .entry-container {

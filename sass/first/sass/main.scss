@@ -24,7 +24,6 @@
   'layout/sidebar',
   'layout/smalllist',
   'layout/biglist',
-  'layout/mediaqueries',
   'layout/photoalbum',
   'layout/mainmenu';
 
@@ -42,4 +41,5 @@
 
 // 7. Themes
 @import
-  'themes/default';
+  'themes/default',
+  'layout/mediaqueries';

@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     $('#slide').bjqs({
         // animtype: 'slide',
-        height: 400,
-        width: 660,
+        //height: 400,
+        width: null,
         responsive: true,
         randomstart: true,
         automatic: false,
