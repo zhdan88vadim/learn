@@ -43,7 +43,20 @@
   .blog-posts li {
     width: 100%;
   }
+
+  .small-list li {
+    width: 46%;
+  }
 }
+
+@media (max-width: 619px) {
+  .small-list li {
+    width: 100%;
+  }
+
+}
+
+
 
 @media (min-width: 1024px) {
 
