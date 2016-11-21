@@ -50,13 +50,19 @@
 }
 
 @media (max-width: 619px) {
+  .menu-holder li {
+    float: none;
+
+    a {
+      display: block;
+    }
+  }
+
   .small-list li {
     width: 100%;
   }
 
 }
-
-
 
 @media (min-width: 1024px) {
 
