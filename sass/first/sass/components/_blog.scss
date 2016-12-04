@@ -1,7 +1,7 @@
 .blog-posts {
   margin-top: 20px;
 
-  ul li:nth-child(odd){
+  ul li:nth-child(odd) {
     margin-right: 4%;
   }
 }
@@ -162,4 +162,45 @@
 
 .showpage a:hover, .showpageNum a:hover {
   border-color: #333;
+}
+
+.article {
+  .main-img {
+    width: 100%;
+  }
+  .article-body {
+    text-align: justify;
+  }
+  .content {
+    margin-top: 20px;
+  }
+
+}
+
+
+.article-footer {
+
+  border-top: 1px solid #CCC;
+  position: relative;
+  padding-top: .51em;
+
+
+  h2.relatedpost {
+    position: absolute;
+    top: -15px;
+    padding: 0 5px 0 0;
+    text-indent: 15px;
+    background: #FFF;
+    margin-bottom: 0;
+  }
+  .related-content {
+
+    font-size: 17px;
+
+    a {
+      display: inline-block;
+      float: left;
+      width: 22%;
+    }
+  }
 }
