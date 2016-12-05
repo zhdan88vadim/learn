@@ -1,0 +1,16 @@
+extends layout.pug
+
+block befor_sidebar
+	.befor-sidebar
+		ul.menu
+			li.highlight
+				a(href='#') Новости
+			li
+				a(href='#') Видео
+			li
+				a(href='#') Аудио
+
+
+
+block content
+		include partial/materials-list.pug

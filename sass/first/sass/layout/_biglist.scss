@@ -1,80 +1,79 @@
 .big-list {
-  margin-top: 20px;
-  font-size: 1.4rem;
-
-  .tags {
     margin-top: 20px;
-  }
-
-  .info {
-    margin-bottom: 10px;
-  }
-
+    font-size: 1.4rem;
+    .tags {
+        margin-top: 20px;
+    }
+    .info {
+        margin-bottom: 10px;
+    }
 }
 
 .big-list img {
-  //max-width: 100%;
-  //min-width: 100%;
-
-  border-radius: 4px;
-  width: 150px;
-  height: 150px;
-  // ?? border: 1px solid #cfcfcf;
+    //max-width: 100%;
+    //min-width: 100%;
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    // ?? border: 1px solid #cfcfcf;
 }
 
 .big-list .wrap-img {
-  height: 150px;
-  overflow: hidden;
-  float: left;
-  margin: 5px 20px 5px 0;
+    height: 150px;
+    overflow: hidden;
+    float: left;
+    margin: 5px 20px 5px 0;
 }
 
 .big-list .entry-title {
-  margin-bottom: 10px;
-  a {
-    color: #e05a65;
-    outline: none;
-    text-decoration: none;
-    font-size: 2.4rem;
-  }
+    margin-bottom: 10px;
+    a {
+        color: #e05a65;
+        outline: none;
+        text-decoration: none;
+        font-size: 2.4rem;
+    }
 }
 
 .big-list li.list-item {
-  //border: 1px solid;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #CFCFCF;
-
-  &:last-child {
-    border: none;
-  }
-
+    //border: 1px solid;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #CFCFCF;
+    &:last-child {
+        border: none;
+    }
 }
 
 .big-list .entry-container {
-  line-height: 22px;
-  margin-bottom: 10px;
+    line-height: 22px;
+    margin-bottom: 10px;
 }
 
 .big-list .item-label {
-  position: absolute;
-  top: 15px;
-  background: #FFEC94;
-  margin-left: -1px;
-  padding: 8px 7px;
-  text-transform: uppercase;
-
-  a {
-    outline: none;
-    text-decoration: none;
-  }
+    position: absolute;
+    top: 15px;
+    background: #FFEC94;
+    margin-left: -1px;
+    padding: 8px 7px;
+    text-transform: uppercase;
+    a {
+        outline: none;
+        text-decoration: none;
+    }
 }
 
 .big-list .entry-short-description {
-  margin-top: 16px;
-  height: 96px;
-  overflow: hidden;
-  color: #4b4b4c;
-  line-height: 19px;
-  text-align: center;
+    margin-top: 16px;
+    height: 96px;
+    overflow: hidden;
+    color: #4b4b4c;
+    line-height: 19px;
+    text-align: center;
+}
+
+.big-list .topic-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
 }

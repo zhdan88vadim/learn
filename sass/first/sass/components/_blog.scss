@@ -1,206 +1,207 @@
 .blog-posts {
-  margin-top: 20px;
-
-  ul li:nth-child(odd) {
-    margin-right: 4%;
-  }
+    margin-top: 20px;
+    ul li:nth-child(odd) {
+        margin-right: 4%;
+    }
 }
 
 .blog-posts img {
-  max-width: 100%;
-  min-width: 100%;
-  border-radius: 4px;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 4px;
 }
 
 .blog-posts .wrap-img {
-  height: 200px;
-  overflow: hidden;
+    height: 200px;
+    overflow: hidden;
 }
 
 .blog-posts .entry-title {
-  text-align: center;
-
-  a {
-    color: #e6686a;
-    outline: none;
-    text-decoration: none;
-  }
+    text-align: center;
+    a {
+        color: #e6686a;
+        outline: none;
+        text-decoration: none;
+    }
 }
 
 .blog-posts li {
-  //border: 1px solid;
-  display: inline-block;
-  //width: 320px;
-  height: 364px;
-  position: relative;
-  //margin-right: 16px;
-  float: left;
-  width: 48%;
+    //border: 1px solid;
+    display: inline-block;
+    //width: 320px;
+    height: 364px;
+    position: relative;
+    //margin-right: 16px;
+    float: left;
+    width: 48%;
 }
 
 .blog-posts .entry-container {
-  margin-top: 6px;
+    margin-top: 6px;
 }
 
 .blog-posts .item-label {
-  position: absolute;
-  top: 15px;
-  background: #FFEC94;
-  margin-left: -1px;
-  padding: 8px 7px;
-  text-transform: uppercase;
-
-  a {
-    outline: none;
-    text-decoration: none;
-    color: #8A7205;
-  }
+    position: absolute;
+    top: 15px;
+    background: #FFEC94;
+    margin-left: -1px;
+    padding: 8px 7px;
+    text-transform: uppercase;
+    a {
+        outline: none;
+        text-decoration: none;
+        color: #8A7205;
+    }
 }
 
 .blog-posts .entry-short-description {
-  margin-top: 6px;
-  height: 96px;
-  overflow: hidden;
+    margin-top: 6px;
+    height: 96px;
+    overflow: hidden;
 }
 
 .blog-posts .entry-short-description {
-  color: #4b4b4c;
-  line-height: 19px;
+    color: #4b4b4c;
+    line-height: 19px;
 }
 
 #blog-pager-newer-link {
-  float: right;
-  text-decoration: none;
-  background: #000;
-  font-size: 1.6rem;
-  font-family: sans-serif;
-  padding: 10px;
-  font-weight: 700;
-  position: relative;
-  left: -20px;
-  top: 8px;
+    float: right;
+    text-decoration: none;
+    background: #000;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    padding: 10px;
+    font-weight: 700;
+    position: relative;
+    left: -20px;
+    top: 8px;
 }
 
 #blog-pager-older-link {
-  text-decoration: none;
-  font-size: 1.6rem;
-  font-family: sans-serif;
-  font-weight: 700;
-  float: left;
-  background: #000;
-  padding: 10px;
-  margin-left: 20px;
-  margin-top: 8px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    font-weight: 700;
+    float: left;
+    background: #000;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 8px;
 }
 
 #blog-pager-newer-link a {
-  text-decoration: none;
-  color: #FFF;
+    text-decoration: none;
+    color: #FFF;
 }
 
 #blog-pager-older-link a {
-  text-decoration: none;
-  color: #FFF;
+    text-decoration: none;
+    color: #FFF;
 }
 
 .blog-pager {
-  margin: 20px 0;
-  border-top: 2px solid #ddd;
-  padding: 3px;
-  border-bottom: 2px solid #ddd;
-  /* margin: 1em 0; */
-  text-align: center;
-  overflow: hidden;
+    margin: 20px 0;
+    border-top: 2px solid #ddd;
+    padding: 3px;
+    border-bottom: 2px solid #ddd;
+    /* margin: 1em 0; */
+    text-align: center;
+    overflow: hidden;
 }
 
 .showpageOf {
-  display: none;
+    display: none;
 }
 
 .showpagePoint {
-  padding: 12px 0px;
-  display: inline-block;
-  background: none repeat scroll 0% 0% transparent;
-  color: #333;
-  margin-right: 5px;
-  font-size: 1.2rem;
-  line-height: 12px;
-  min-width: 35px;
-  border: 2px solid #333;
-  font-weight: bold;
+    padding: 12px 0px;
+    display: inline-block;
+    background: none repeat scroll 0% 0% transparent;
+    color: #333;
+    margin-right: 5px;
+    font-size: 1.2rem;
+    line-height: 12px;
+    min-width: 35px;
+    border: 2px solid #333;
+    font-weight: bold;
 }
 
 .showpageNum a {
-  display: inline-block;
-  background: none repeat scroll 0% 0% transparent;
-  color: #333;
-  margin-right: 5px;
-  font-size: 1.2rem;
-  position: relative;
-  line-height: 12px;
-  min-width: 35px;
-  text-align: center;
-  border: 2px solid #DCDCDC;
-  font-weight: bold;
-  padding: 12px 0px;
+    display: inline-block;
+    background: none repeat scroll 0% 0% transparent;
+    color: #333;
+    margin-right: 5px;
+    font-size: 1.2rem;
+    position: relative;
+    line-height: 12px;
+    min-width: 35px;
+    text-align: center;
+    border: 2px solid #DCDCDC;
+    font-weight: bold;
+    padding: 12px 0px;
 }
 
 .showpage a {
-  display: inline-block;
-  background: none repeat scroll 0% 0% transparent;
-  color: #333;
-  margin-right: 5px;
-  font-size: 1.2rem;
-  position: relative;
-  line-height: 12px;
-  min-width: 39px;
-  text-align: center;
-  border: 2px solid #DCDCDC;
-  font-weight: bold;
-  padding: 15px 0px;
+    display: inline-block;
+    background: none repeat scroll 0% 0% transparent;
+    color: #333;
+    margin-right: 5px;
+    font-size: 1.2rem;
+    position: relative;
+    line-height: 12px;
+    min-width: 39px;
+    text-align: center;
+    border: 2px solid #DCDCDC;
+    font-weight: bold;
+    padding: 15px 0px;
 }
 
-.showpage a:hover, .showpageNum a:hover {
-  border-color: #333;
+.showpage a:hover,
+.showpageNum a:hover {
+    border-color: #333;
 }
 
 .article {
-  .main-img {
-    width: 100%;
-  }
-  .article-body {
-    text-align: justify;
-  }
-  .content {
-    margin-top: 20px;
-  }
-
+    .main-img {
+        width: 100%;
+    }
+    .article-body {
+        text-align: justify;
+    }
+    .content {
+        margin-top: 20px;
+    }
 }
 
-
 .article-footer {
-
-  border-top: 1px solid #CCC;
-  position: relative;
-  padding-top: .51em;
-
-
-  h2.relatedpost {
-    position: absolute;
-    top: -15px;
-    padding: 0 5px 0 0;
-    text-indent: 15px;
-    background: #FFF;
-    margin-bottom: 0;
-  }
-  .related-content {
-
-    font-size: 17px;
-
-    a {
-      display: inline-block;
-      float: left;
-      width: 22%;
+    margin-top: 40px;
+    border-top: 1px solid #CCC;
+    position: relative;
+    padding-top: .51em;
+    h2.relatedpost {
+        position: absolute;
+        top: -15px;
+        padding: 0 15px 0 0;
+        text-indent: 15px;
+        background: #FFF;
+        margin-bottom: 0;
     }
-  }
+    .related-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 17px;
+        a {
+            margin: 0 18px 18px 0;
+            display: inline-block;
+            float: left;
+            width: 22%;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .relatedtitle {
+        text-align: center;
+    }
 }

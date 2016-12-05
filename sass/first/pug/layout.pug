@@ -1,93 +1,11 @@
-doctype html
-html(lang='en')
-    head
-        meta(charset='UTF-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        title Title
-        script(src='../bower_components/jquery/dist/jquery.js')
-        // <link rel="stylesheet" href="js/plugins/bjqs-slider/bjqs.css">
-        script(src='../js/plugins/bjqs-slider/bjqs-1.3.js')
-        script(src='../js/main.js')
-        link(rel='stylesheet', href='../css/main.css')
+extends head_layout.pug
 
-        block css
-        block head
+block head_content
 
-    body
-        .header-wrapper.ct-wrapper
-            header
-                #header
-                    //.social-holder
-                    //    ul.social-networks
-                    //        li
-                    //            a.rss(href='#') rss
-                    //        li
-                    //            a.youtube(href='#') youtube
-                    //        li
-                    //            a.twitter(href='#') twitter
-                    //        li
-                    //            a.pinterest(href='#') pinterest
-                    //        li
-                    //            a.flickr(href='#') flickr
-                    //        li
-                    //            a.gplus(href='#') gplus
-                    //        li
-                    //            a.linkedin(href='#') linkedin
-                    //        li
-                    //            a.facebook(href='#') facebook
-                    //        li
-                    //            a.vimeo(href='#') instagram
-                    //        li
-                    //            a.tumblr(href='#') Tumblr
-                    .logo-holder
-                        h1 Церковь Свет Миру
-                    .search-form-default
-                        form(action='/search', method='get')
-                            input(type='text', value='SEARCH')
-                            input(type='submit', value=' ')
-        .ct-wrapper
-            .menu-holder
-                .main-menu
-                    ul
-                        li.highlight
-                            a(href='index.html') Главная
-                        li
-                            a(href='#') Свидетельства
-                        li
-                            a(href='sluzheniya.html') Служения
-                        li
-                            a(href='#') Материалы
-                        li
-                            a(href='sermons.html') Проповеди
-                        li
-                            a(href='photo.html') Фото
-                        li
-                            a(href='#') Библия
-                        li
-                            a(href='contact.html') Контакты
-                    //
-                        <select class="nav-select">
-                        <option>Navigation</option>
-                        <option value="/">Home</option>
-                        <option value="#">Beauty Trends</option>
-                        <option value="#">Diet &amp; Health</option>
-                        <option value="#">DIY Tutorials</option>
-                        <option value="#">Fashion</option>
-                        <option value="#">Fragrance</option>
-                        <option value="#">Hair</option>
-                        <option value="#">Inspiration</option>
-                        <option value="#">Makeup</option>
-                        <option value="#">Skincare</option>
-                        </select>
-        .ct-wrapper
-            .outer-wrapper
-                .main-wrapper
+    .main-wrapper
+        block content
 
-                    block content
-
-                .sidebar-wrapper
-                    .sidebar
-
-                        include partial/sidebar
-
-        include partial/footer.pug
+    .sidebar-wrapper
+        .sidebar
+            block befor_sidebar
+            include partial/sidebar

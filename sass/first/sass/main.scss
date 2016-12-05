@@ -1,45 +1,33 @@
 @charset "UTF-8";
-
 // 1. Configuration and helpers
-@import
-  'abstracts/variables',
-  'abstracts/functions',
-  'abstracts/mixins';
-
+@import 'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins';
 // 2. Vendors
-@import
-  'vendor/reset';
-
+@import 'vendor/reset';
 // 3. Base stuff
-@import
-  'base/base',
-  'base/fonts',
-  'base/typography',
-  'base/helpers';
-
+@import 'base/base',
+'base/fonts',
+'base/typography',
+'base/helpers';
 // 4. Layout-related sections
-@import
-  'layout/header',
-  'layout/footer',
-  'layout/sidebar',
-  'layout/smalllist',
-  'layout/biglist',
-  'layout/photoalbum',
-  'layout/mainmenu';
-
+@import 'layout/header',
+'layout/footer',
+'layout/sidebar',
+'layout/smalllist',
+'layout/biglist',
+'layout/photoalbum',
+'layout/mainmenu';
 // 5. Components
-@import
-  'components/button',
-  'components/blog',
-  'components/photopolaroids',
-  'components/search',
-  'components/slider';
-
+@import 'components/button',
+'components/blog',
+'components/blogcomments',
+'components/photopolaroids',
+'components/search',
+'components/slider';
 // 6. Page-specific styles
-@import
-  'pages/home';
-
+@import 'pages/home',
+'pages/contacts';
 // 7. Themes
-@import
-  'themes/default',
-  'layout/mediaqueries';
+@import 'themes/default',
+'layout/mediaqueries';

@@ -1,0 +1,80 @@
+.blog-comments {
+    h4 {
+        font-size: 2.8rem;
+        line-height: 2.8em;
+        margin-top: 30px;
+    }
+    .comments-content {
+        .datetime {
+            color: #b9b9b9;
+            text-decoration: none;
+            font-variant: small-caps;
+        }
+        .comment-item {
+            counter-increment: trackit;
+            position: relative;
+            margin-bottom: 60px;
+            &:before {
+                content: counters(trackit, ".");
+                font-size: 3.5rem;
+                color: rgba(0, 0, 0, 0.16);
+                right: 0;
+                position: absolute;
+                text-shadow: 1px 1px 1px #FFF;
+                padding: .2em 0 0;
+            }
+        }
+        .comment-block {
+            margin-left: 90px;
+        }
+        .comment-header {
+            font-size: 2.0rem;
+        }
+        .comment-content {
+            text-align: justify;
+            border: 1px solid #e1e1e1;
+            margin-left: -70px;
+            margin-top: 46px;
+            padding: 20px;
+            font-size: 1.4rem;
+        }
+        .avator-img-container {
+            float: left;
+            img {
+                border-radius: 50%;
+            }
+        }
+    }
+    .submit-form {
+        margin-bottom: 80px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-bottom: 1px solid #eee;
+        .head {
+            padding: 18px 22px 18px 22px;
+        }
+        textarea {
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            color: #222;
+            display: inline-block;
+            padding: 5px 2px 2px 5px;
+            vertical-align: top;
+        }
+        .controls {
+            background-color: #f5f5f5;
+            padding: 10px 10px 4px 10px;
+        }
+        .publish-button {
+            cursor: pointer;
+            background-color: #4d90f0;
+            border: 1px solid #3079ed;
+            color: #fff;
+            font-weight: bold;
+            margin: 0 8px 6px 0;
+            height: 27px;
+            border-radius: 2px;
+        }
+    }
+}

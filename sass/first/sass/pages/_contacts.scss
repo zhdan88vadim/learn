@@ -1,0 +1,17 @@
+.contacts {
+    margin-bottom: 120px;
+    .contact-info {
+        float: left;
+        width: 30%;
+        padding-right: 30px;
+    }
+    .map {
+        float: left;
+        width: 70%;
+    }
+    .contact-description {
+        margin-top: 4px;
+        margin-bottom: 18px;
+        font-size: 1.4rem;
+    }
+}

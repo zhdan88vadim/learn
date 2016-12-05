@@ -1,59 +1,74 @@
 .menu-holder {
-  padding: 24px 0px 24px 0px;
+    padding: 24px 0px 24px 0px;
 }
 
 .main-menu {
-  width: 100%;
-  border: solid #CFCFCF;
-  border-width: 1px 0 1px 0;
-  display: inline-block;
-
+    width: 100%;
+    border: solid #CFCFCF;
+    border-width: 1px 0 1px 0;
+    display: inline-block;
 }
 
 .menu-holder li {
-  list-style-type: none;
-  float: left;
-
+    list-style-type: none;
+    float: left;
 }
 
 .menu-holder li {
-  margin-bottom: 14px;
-  margin-top: 14px;
-
-  &.highlight a {
-    color: #FFF;
-    //background: #F7AFB0;
-    background: #e6686a;
-  }
+    margin-bottom: 14px;
+    margin-top: 14px;
+    &.highlight a {
+        color: #FFF;
+        //background: #F7AFB0;
+        background: #e6686a;
+    }
 }
 
 .menu-holder li a {
-  color: #000;
-  text-decoration: none;
-  //padding-top: 6px;
-  //padding-left: 10px;
-  //padding-bottom: 6px;
-  //padding-right: 10px;
-
-  padding-top: 10px;
-  padding-left: 16px;
-  padding-bottom: 10px;
-  padding-right: 16px;
-
-  &:hover {
-    color: #FFF;
-    background: #F7AFB0;
-  }
+    color: #000;
+    text-decoration: none;
+    //padding-top: 6px;
+    //padding-left: 10px;
+    //padding-bottom: 6px;
+    //padding-right: 10px;
+    padding-top: 10px;
+    padding-left: 16px;
+    padding-bottom: 10px;
+    padding-right: 16px;
+    &:hover {
+        color: #FFF;
+        background: #F7AFB0;
+    }
 }
 
-
 .nav-select {
-  width: 100%;
+    width: 100%;
 }
 
 @media (max-width: 600px) {
-  .nav-select {
-    display: none;
-  }
+    .nav-select {
+        display: none;
+    }
 }
 
+.befor-sidebar {
+    .menu {
+        li {
+            margin-bottom: 14px;
+            margin-top: 14px;
+        }
+        li a {
+            color: #000;
+            text-decoration: none;
+            padding-top: 10px;
+            padding-left: 16px;
+            padding-bottom: 10px;
+            padding-right: 16px;
+            display: block;
+        }
+        li.highlight a {
+            color: #FFF;
+            background: #e6686a;
+        }
+    }
+}
