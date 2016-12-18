@@ -33,6 +33,11 @@ a {
   }
 }
 
+body {
+  //background-image: url(../assets/img/seigaiha.png);
+  //background: url(../assets/img/flower0.png) no-repeat 36px 0px;
+}
+
 .clear {
   clear: both;
 }
@@ -40,6 +45,7 @@ a {
 .ct-wrapper {
   width: 1024px;
   margin: 0 auto;
+  //background: #f7f7f7;
 }
 
 .social-holder {
@@ -52,10 +58,12 @@ a {
 }
 
 .header-wrapper {
-  width: 980px;
-  padding: 24px 0px 24px 0px;
+  //width: 980px;
+  //padding: 24px 0px 24px 0px;
+  padding: 50px 0px 0px 0px;
   margin: 0 auto;
   overflow: hidden;
+  background: url(../assets/img/flower02.png) no-repeat -10px 0px;
 }
 
 .header-wrapper:after {
