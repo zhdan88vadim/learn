@@ -39,6 +39,29 @@ function prepareIntroText(contentString) {
 // return;
 
 
+
+function filterUrl(urls) {
+
+    var result = {};
+    result.podfm = [];
+    result.mp3 = [];
+
+    Array.from(urls).forEach(function(link, i, arr) {
+        var fixMp3Url = link.replace('.mp3%27);', '.mp3');
+        var podfmIndex = fixMp3Url.indexOf('churchlw.podfm.ru');
+        if (podfmIndex > 0) {
+
+            if (fixMp3Url.indexOf('data.xml') > 0) {
+                result.podfm.push(fixMp3Url);
+            } else {
+                result.mp3.push(fixMp3Url);
+            }
+        }
+    });
+
+    return result;
+}
+
 var articleArray = [];
 
 articles.forEach(function(article, i, arr) {
@@ -54,7 +77,7 @@ articles.forEach(function(article, i, arr) {
     newArticle.created_by = article.created_by;
     newArticle.ordering = article.ordering;
     newArticle.catid = article.catid;
-    newArticle.urls = Array.from(getUrls(article.fulltext));
+    newArticle.urls = filterUrl(getUrls(article.fulltext));
 
 
     var introtext = prepareIntroText(article.introtext);

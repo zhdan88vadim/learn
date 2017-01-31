@@ -127,17 +127,36 @@
 
         });
 
-        console.log(articleArray);
+        //console.log(articleArray);
 
-        console.log(JSON.stringify(articleArray));
+        //console.log(JSON.stringify(articleArray));
 
 
-        var arrLink = ["http://file.podfm.ru/player.swf", "http://churchlw.podfm.ru/my/262/data.xml", "http://churchlw.podfm.ru/my/262/file/podfm_churchlw_my_20160322.mp3%27);"];
+        var arrLink = [
+        "http://file.podfm.ru/player.swf", 
+        "http://churchlw.podfm.ru/my/262/data.xml", "http://churchlw.podfm.ru/my/262/file/podfm_churchlw_my_20160322.mp3%27);",
+        "http://churchlw.podfm.ru/my/234/file/podfm_churchlw_my_2016213421.mp3%27);",
+        "http://churchlw.podfm.ru/my/234/data.xml"];
+
+        var returnUrl = {};
+        returnUrl.podfm = [];
+        returnUrl.mp3 = [];
 
         arrLink.forEach(function(link, i, arr) {
+            var fixMp3Url = link.replace('.mp3%27);', '.mp3');
+            var podfmIndex = fixMp3Url.indexOf('churchlw.podfm.ru');
+            if (podfmIndex > 0) {
 
+                if (fixMp3Url.indexOf('data.xml') > 0) {
+                    returnUrl.podfm.push(fixMp3Url);
+                } else {
+                    returnUrl.mp3.push(fixMp3Url);
+                }
+
+            }
         });
-        
+
+        console.log(returnUrl);
     </script>
 
 
