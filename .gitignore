@@ -3,3 +3,4 @@ node_js/express-generator/node_modules/
 node_js/second_server/node_modules/
 node_js/podfm_upload/node_modules/
 *.log
+node_js/read_json_for_chlw/node_modules/
