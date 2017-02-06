@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "get-urls": "^7.0.0"
+    "get-urls": "^7.0.0",
+    "lodash": "^4.17.4"
   }
 }

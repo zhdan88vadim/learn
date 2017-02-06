@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/g/lodash@4.17.4(lodash.min.js+lodash.core.min.js+lodash.fp.min.js+lodash.core.js+lodash.fp.js+lodash.js+mapping.fp.js)"></script>
+</head>
+
+<body>
+
+    http://codebeautify.org/htmlviewer/ http://codebeautify.org/jsonviewer http://jsbeautifier.org/ '":' replace with ' ":'
+
+
+
+    <script>
+        var users = [{
+            "id": 62,
+            "name": "Administrator",
+            "username": "admin",
+            "email": "admin@churchlw.com",
+            "password": "7afd14676f9b28c96ddd1ce01379e67f:XWwrjqudmWAE0xPEkPLKLJS9TaLdf5gw",
+            "usertype": "Super Administrator",
+            "block": 0,
+            "sendEmail": 1,
+            "gid": 25,
+            "registerDate": "2011-09-21 07:37:59",
+            "lastvisitDate": "2017-01-22 16:25:58",
+            "activation": "",
+            "params": "admin_language=ru-RU language=ru-RU editor=jce helpsite= timezone=2 "
+        }, {
+            "id": 63,
+            "name": "Пастор Андрей",
+            "username": "pastor",
+            "email": "church-L.W@mail.ru",
+            "password": "c3cac18b0cabdeb823bd0b83021030d0:PgwjXkuJdhGodLhVUBP7mTY5WOt8Lvv1",
+            "usertype": "Author",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011-09-21 07:40:15",
+            "lastvisitDate": "0000-00-00 00:00:00",
+            "activation": "d2e74ff2532e5966c0305e7c9e7ade6e"
+        }, {
+            "id": 64,
+            "name": "Валентина Козлова",
+            "username": "Valy",
+            "email": "valia14.10@mail.ru",
+            "password": "54cc35f6b419ef9e87ccdb9499526ec8:O4CB61zIw7ihWxuVeNC7eeVb0KsNv36V",
+            "usertype": "Author",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011-10-02 14:44:04",
+            "lastvisitDate": "0000-00-00 00:00:00",
+            "activation": ""
+        }, {
+            "id": 65,
+            "name": "Олег Козлов",
+            "username": "oleg",
+            "email": "olegus76@tut.by",
+            "password": "175c66f23b4c71d8ffe85312091287c5:misSpukGyLqsAvJFpjX9s4F3hXp71FzL",
+            "usertype": "Author",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011-10-05 07:17:28",
+            "lastvisitDate": "0000-00-00 00:00:00",
+            "activation": ""
+        }, {
+            "id": 66,
+            "name": "Ирина Фролова",
+            "username": "irina",
+            "email": "tavifa@minskportal.com",
+            "password": "8acb99ec3611fec8ce1905c859805042:47X1tMq01G8fvQqSvpxd3x2s8i1ROPnb",
+            "usertype": "Author",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011-10-05 20:09:26",
+            "lastvisitDate": "0000-00-00 00:00:00",
+            "activation": ""
+        }, {
+            "id": 68,
+            "name": "КисИлина",
+            "username": "kisel",
+            "email": "1234@mail.ru",
+            "password": "6c47404bc656813824800f2fe7e939ba:njTmECO0WGLCIfjQNeYlemY3fzGOtWZR",
+            "usertype": "Author",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011-10-21 15:41:43",
+            "lastvisitDate": "0000-00-00 00:00:00",
+            "activation": "",
+            "params": ""
+        }, {
+            "id": 69,
+            "name": "Евгений Шитов ",
+            "username": "shitov ",
+            "email": "qwerty @mail.ru ",
+            "password": "375407e518 dbc081ce963f96e0aeba6b: 4 wv9FMKn0kXzzSqHaY3bLMOC16PGdaA0 ",
+            "usertype": "Author ",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011 - 10 - 25 20: 53: 36 ",
+            "lastvisitDate": "0000 - 00 - 00 00: 00: 00 ",
+            "activation": ""
+        }, {
+            "id": 70,
+            "name": "Екатерина Субботина ",
+            "username": "kate ",
+            "email": "vbg @mail.ru ",
+            "password": "bb206f50be5268ce72c680ef9418df38: FJohOgrLHnrFo7hjd8cUts196qitYDpl ",
+            "usertype": "Author ",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011 - 11 - 16 14: 30: 24 ",
+            "lastvisitDate": "0000 - 00 - 00 00: 00: 00 ",
+            "activation": "",
+            "params": "admin_language =         language =         editor =         helpsite =         timezone = 2          "
+        }, {
+            "id": 71,
+            "name": "Сергей Федосик ",
+            "username": "fedosik ",
+            "email": "fedosik @mail.ru ",
+            "password": "7 d546287e02a51d4fc1e648f65e294d0: vpxxfy5EnUBHex1OTMnH3AC3fmhluabH ",
+            "usertype": "Author ",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011 - 12 - 13 09: 40: 48 ",
+            "lastvisitDate": "0000 - 00 - 00 00: 00: 00 ",
+            "activation": ""
+        }, {
+            "id": 72,
+            "name": "Александр Аскерко ",
+            "username": "askerko ",
+            "email": "098 @mail.ru ",
+            "password": "19422 a18ca71164d82c1303824e4b70d: qZHiP1ugEqeVNhlfANzf9z5016LsYvgN ",
+            "usertype": "Author ",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2011 - 12 - 20 13: 18: 44 ",
+            "lastvisitDate": "0000 - 00 - 00 00: 00: 00 ",
+            "activation": ""
+        }, {
+            "id": 74,
+            "name": "Полина Помидоркина ",
+            "username": "polpom ",
+            "email": "user @domain.com ",
+            "password": "ad42f6646ba5d64fc2faa3b5e3942404: 6 I98234MJ22xIhXNOt0aW5sRhLZv8rdl ",
+            "usertype": "Author ",
+            "block": 0,
+            "sendEmail": 0,
+            "gid": 19,
+            "registerDate": "2016 - 02 - 17 07: 17: 36 ",
+            "lastvisitDate": "0000 - 00 - 00 00: 00: 00 ",
+            "activation": ""
+        }];
+
+
+        posts = [{
+            "id": 460,
+            "title": "Воскресная проповедь - 18.12.2016",
+            "alias": "voskresnaya-propoved-18122016",
+            "sectionid": 16,
+            "hits": 380,
+            "created": "2016-12-18 15:07:20",
+            "created_by": 63,
+            "ordering": 5,
+            "catid": 51,
+            "urls": {
+                "podfm": [
+                    "http://churchlw.podfm.ru/my/315/data.xml"
+                ],
+                "mp3": [
+                    "http://churchlw.podfm.ru/my/315/file/podfm_churchlw_my_20161218.mp3"
+                ]
+            },
+            "introtext": " Воскресная проповедь - 18.12.2016",
+            "fulltext": "<p> Воскресная проповедь - 18.12.2016</p>"
+        }, {
+            "id": 461,
+            "title": "Воскресная проповедь — 08.01.2017",
+            "alias": "voskresnaya-propoved-08012017",
+            "sectionid": 16,
+            "hits": 145,
+            "created": "2017-01-11 19:14:19",
+            "created_by": 63,
+            "ordering": 4,
+            "catid": 51,
+            "urls": {
+                "podfm": [
+                    "http://churchlw.podfm.ru/my/316/data.xml"
+                ],
+                "mp3": [
+                    "http://churchlw.podfm.ru/my/316/file/podfm_churchlw_my_20170108.mp3"
+                ]
+            },
+            "introtext": " Воскресная проповедь — 08.01.2017",
+            "fulltext": "<p> Воскресная проповедь — 08.01.2017</p>"
+        }, {
+            "id": 462,
+            "title": "Воскресная проповедь — Место утвержденное Богом — 15.01.2017",
+            "alias": "voskresnaya-propoved--mesto-utverzhdennoe-bogom--15012017",
+            "sectionid": 16,
+            "hits": 38,
+            "created": "2017-01-20 19:43:23",
+            "created_by": 62,
+            "ordering": 3,
+            "catid": 51,
+            "urls": {
+                "podfm": [
+                    "http://churchlw.podfm.ru/my/317/data.xml"
+                ],
+                "mp3": [
+                    "http://churchlw.podfm.ru/my/317/file/podfm_churchlw_my_20170115.mp3"
+                ]
+            },
+            "introtext": "Воскресная проповедь — Место утвержденное Богом — 15.01.2017",
+            "fulltext": "<p>Воскресная проповедь — Место утвержденное Богом — 15.01.2017</p>"
+        }, {
+            "id": 463,
+            "title": "Библейская школа — грехопадение — 1",
+            "alias": "biblejskaya-shkola--grexopadenie--1",
+            "sectionid": 16,
+            "hits": 3,
+            "created": "2017-01-22 16:26:50",
+            "created_by": 62,
+            "ordering": 2,
+            "catid": 51,
+            "urls": {
+                "podfm": [
+                    "http://churchlw.podfm.ru/my/318/data.xml"
+                ],
+                "mp3": [
+                    "http://churchlw.podfm.ru/my/318/file/podfm_churchlw_my_20170122.mp3"
+                ]
+            },
+            "introtext": "Библейская школа — грехопадение — 1",
+            "fulltext": "<p>Библейская школа — грехопадение — 1</p>"
+        }];
+
+
+
+        var resultObj = {
+            User: [{
+                'name.full': 'admin@admin.com',
+                email: 'admin@admin.com',
+                password: 'admin',
+                isAdmin: true,
+                photo: {
+                    filename: 'user_admin.jpg',
+                    size: 10622,
+                    mimetype: 'image/jpeg'
+                },
+                __ref: 'adminuser'
+            }],
+            Post: []
+        };
+
+
+        users.forEach(function(user, i, arr) {
+            var safeName = urlRusLat(user.name.trim());
+
+            var newUser = {};
+            newUser.old_id = user.id;
+            newUser['name.full'] = safeName;
+            newUser.__ref = safeName;
+            newUser.password = '1qaz!QAZ__2wsx@WSX';
+            newUser.isAdmin = false;
+            newUser.photo = {
+                filename: safeName + '.jpg',
+                size: 10500,
+                mimetype: 'image/jpeg'
+            };
+
+            resultObj.User.push(newUser);
+        });
+
+
+        posts.forEach(function(post, i, arr) {
+
+            var newPost = {};
+            newPost.name = post.title;
+            newPost.state = 'published';
+            newPost.author = getRefById(resultObj.User, post.created_by);
+            newPost.publishedDate = post.created;
+            newPost['content.brief'] = post.introtext;
+            newPost['content.extended'] = post.fulltext;
+            newPost.categories = [];
+            newPost.tags = [];
+    
+            resultObj.Post.push(newPost);
+        });
+
+
+
+        console.log(resultObj);
+
+
+
+        function getRefById(arr, userId) {
+            var item = _.find(arr, { old_id: userId });
+            return item.__ref;
+        }
+
+
+
+
+
+        //Транслитерация кириллицы в URL
+        function urlRusLat(str) {
+            str = str.toLowerCase(); // все в нижний регистр
+            var cyr2latChars = new Array(
+                ['а', 'a'], ['б', 'b'], ['в', 'v'], ['г', 'g'], ['д', 'd'], ['е', 'e'], ['ё', 'yo'], ['ж', 'zh'], ['з', 'z'], ['и', 'i'], ['й', 'y'], ['к', 'k'], ['л', 'l'], ['м', 'm'], ['н', 'n'], ['о', 'o'], ['п', 'p'], ['р', 'r'], ['с', 's'], ['т', 't'], ['у', 'u'], ['ф', 'f'], ['х', 'h'], ['ц', 'c'], ['ч', 'ch'], ['ш', 'sh'], ['щ', 'shch'], ['ъ', ''], ['ы', 'y'], ['ь', ''], ['э', 'e'], ['ю', 'yu'], ['я', 'ya'],
+
+                ['А', 'A'], ['Б', 'B'], ['В', 'V'], ['Г', 'G'], ['Д', 'D'], ['Е', 'E'], ['Ё', 'YO'], ['Ж', 'ZH'], ['З', 'Z'], ['И', 'I'], ['Й', 'Y'], ['К', 'K'], ['Л', 'L'], ['М', 'M'], ['Н', 'N'], ['О', 'O'], ['П', 'P'], ['Р', 'R'], ['С', 'S'], ['Т', 'T'], ['У', 'U'], ['Ф', 'F'], ['Х', 'H'], ['Ц', 'C'], ['Ч', 'CH'], ['Ш', 'SH'], ['Щ', 'SHCH'], ['Ъ', ''], ['Ы', 'Y'], ['Ь', ''], ['Э', 'E'], ['Ю', 'YU'], ['Я', 'YA'],
+
+                ['a', 'a'], ['b', 'b'], ['c', 'c'], ['d', 'd'], ['e', 'e'], ['f', 'f'], ['g', 'g'], ['h', 'h'], ['i', 'i'], ['j', 'j'], ['k', 'k'], ['l', 'l'], ['m', 'm'], ['n', 'n'], ['o', 'o'], ['p', 'p'], ['q', 'q'], ['r', 'r'], ['s', 's'], ['t', 't'], ['u', 'u'], ['v', 'v'], ['w', 'w'], ['x', 'x'], ['y', 'y'], ['z', 'z'],
+
+                ['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['E', 'E'], ['F', 'F'], ['G', 'G'], ['H', 'H'], ['I', 'I'], ['J', 'J'], ['K', 'K'], ['L', 'L'], ['M', 'M'], ['N', 'N'], ['O', 'O'], ['P', 'P'], ['Q', 'Q'], ['R', 'R'], ['S', 'S'], ['T', 'T'], ['U', 'U'], ['V', 'V'], ['W', 'W'], ['X', 'X'], ['Y', 'Y'], ['Z', 'Z'],
+
+                [' ', '_'], ['0', '0'], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['-', '-']
+
+            );
+
+            var newStr = new String();
+
+            for (var i = 0; i < str.length; i++) {
+
+                ch = str.charAt(i);
+                var newCh = '';
+
+                for (var j = 0; j < cyr2latChars.length; j++) {
+                    if (ch == cyr2latChars[j][0]) {
+                        newCh = cyr2latChars[j][1];
+
+                    }
+                }
+                // Если найдено совпадение, то добавляется соответствие, если нет - пустая строка
+                newStr += newCh;
+
+            }
+            // Удаляем повторяющие знаки - Именно на них заменяются пробелы.
+            // Так же удаляем символы перевода строки, но это наверное уже лишнее
+            return newStr.replace(/[_]{2,}/gim, '_').replace(/\n/gim, '');
+        }
+    </script>
+
+</body>
+
+</html>
