@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-var logStream = fs.createWriteStream('result_file.json' + new Date().toISOString(), { 'flags': 'a', autoClose: true });
-var finalResultStream = fs.createWriteStream('final_result_file.json' + new Date().toISOString(), { 'flags': 'a', autoClose: true });
+var logStream = fs.createWriteStream('result_file.json', { 'flags': 'a', autoClose: true });
+var finalResultStream = fs.createWriteStream('final_result_file.json', { 'flags': 'a', autoClose: true });
 
 
 let cheerio = require('cheerio');
@@ -12,6 +12,8 @@ var _ = require('lodash');
 
 var articlesResult = require('./result_file.json');
 var users = require('./users_normalize.json');
+//var sections = require('./jos_sections.json');
+
 
 
 function prepareContent(contentString, delimiter0, delimiter1) {
@@ -139,12 +141,78 @@ function getRefById(arr, userId) {
     return item.__ref;
 }
 
+function normalizeData(data) {
+
+    data.User.forEach(function(user, i, arr) {
+        delete user.old_id;
+    });
+
+    return data;
+}
+
 var resultObj = {
+    PostCategory: [{
+        name: 'sermons',
+        __ref: 'sermons'
+    }, {
+        name: 'materials',
+        __ref: 'materials'
+    }, {
+        name: 'testimonies',
+        __ref: 'testimonies'
+    }, {
+        name: 'news',
+        __ref: 'news'
+    }, {
+        name: 'service',
+        __ref: 'service'
+    }, {
+        name: 'welcome',
+        __ref: 'welcome'
+    }],
+
+    Tag: [{
+        name: 'Исцеление',
+        __ref: 'iscelenie'
+    }, {
+        name: 'Работа',
+        __ref: 'rabota'
+    }, {
+        name: 'Деньги',
+        __ref: 'dengi'
+    }, {
+        name: 'Семья',
+        __ref: 'semya'
+    }, {
+        name: 'Служение',
+        __ref: 'sluzhenie'
+    }, {
+        name: 'Работа над собой',
+        __ref: 'rabota_nad_soboi'
+    }, {
+        name: 'Призвание',
+        __ref: 'prizvanie'
+    }, {
+        name: 'Борьба',
+        __ref: 'borba'
+    }, {
+        name: 'Здоровье',
+        __ref: 'zdorovie'
+    }, {
+        name: 'Упорство',
+        __ref: 'uporstvo'
+    }, {
+        name: 'Любовь',
+        __ref: 'lubovi'
+    }, {
+        name: 'Молитва',
+        __ref: 'molitva'
+    }],
     User: [{
         'name.full': 'admin@admin.com',
         email: 'admin@admin.com',
         password: 'admin',
-        isAdmin: true,
+        isAdmin: false,
         photo: {
             filename: 'user_admin.jpg',
             size: 10622,
@@ -155,7 +223,6 @@ var resultObj = {
     Post: []
 };
 
-
 function StartSecondStep() {
 
     users.forEach(function(user, i, arr) {
@@ -163,10 +230,11 @@ function StartSecondStep() {
 
         var newUser = {};
         newUser.old_id = user.id;
-        newUser['name.full'] = safeName;
+        newUser['name.full'] = user.name.trim();
         newUser.__ref = safeName;
-        newUser.password = '1qaz!QAZ__2wsx@WSX';
+        newUser.password = '1qaz!QAZ__2wsx@WSX' + safeName;
         newUser.isAdmin = false;
+        newUser.email = safeName + '@' + safeName + '.com';
         newUser.photo = {
             filename: safeName + '.jpg',
             size: 10500,
@@ -175,6 +243,39 @@ function StartSecondStep() {
 
         resultObj.User.push(newUser);
     });
+
+    function getCategoryRevById(id) {
+
+        // "sectionid": 10 = 12  "Свидетельства"
+        // "sectionid": 11 = 1 "Библия "
+        // "sectionid": 12 = 4  "Бюллетень"
+        // "sectionid": 14 = 6 "Служения",
+        // "sectionid": 15 = 80 "Новости",
+        // "sectionid": 16 = 274 "Проповедь"
+        // "sectionid": 18 = 1    "Прайс",
+
+        var ref = null;
+
+        switch (id) {
+            case 10:
+                ref = 'testimonies';
+                break;
+            case 12:
+                ref = 'welcome';
+                break;
+            case 14:
+                ref = 'service';
+                break;
+            case 15:
+                ref = 'news';
+                break;
+            case 16:
+                ref = 'sermons';
+                break;
+        }
+
+        return ref;
+    }
 
     articlesResult.forEach(function(post, i, arr) {
 
@@ -185,13 +286,18 @@ function StartSecondStep() {
         newPost.publishedDate = post.created;
         newPost['content.brief'] = post.introtext;
         newPost['content.extended'] = post.fulltext;
-        newPost.categories = [];
+        //newPost.categories = [];
+        newPost.categories = getCategoryRevById(post.sectionid);
         newPost.tags = [];
 
-        resultObj.Post.push(newPost);
+        if (newPost.categories) {
+            resultObj.Post.push(newPost);
+        }
     });
 
     // console.log(resultObj);
+
+    normalizeData(resultObj);
 
     finalResultStream.write(JSON.stringify(resultObj));
     finalResultStream.end();

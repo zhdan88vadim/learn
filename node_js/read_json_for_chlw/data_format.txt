@@ -7,6 +7,43 @@ some urls
 
 
 
+"sectionid": 10 = 12  "Свидетельства"
+
+"sectionid": 11 = 1 "Библия "
+"sectionid": 12 = 4  "Бюллетень"
+"sectionid": 14 = 6 "Служения",
+"sectionid": 15 = 80 "Новости",
+"sectionid": 16 = 274 "Проповедь",
+"sectionid": 18 = 1    "Прайс",
+
+
+!TODO: обратить внимание
+отображается плеер
+--
+Воскресная проповедь 26.06.2016
+
+Пастор Андрей
+Пастор Андрей - 06, 27, 2016
+<p><img src="images/stories/pastor.jpg" alt="" border="0" /><strong>Воскресная проповедь 26.06.2016</strong></p></p><hr id="system-readmore" /><p><br /> <object id="slide_426778" data="http://file.podfm.ru/player.swf" type="application/x-shockwave-flash" width="450" height="53"> <param name="align" value="middle" /> <param name="allowScriptAccess" value="always" /> <param name="menu" value="false" /> <param name="WMode" value="transparent" /> <param name="quality" value="high" /> <param name="FlashVars" value="xmlurl=http://churchlw.podfm.ru/my/280/data.xml" /> <param name="name" value="slide_426778" /> <param name="flashvars" value="xmlurl=http://churchlw.podfm.ru/my/280/data.xml" /> <param name="wmode" value="transparent" /> <param name="movie" value="http://file.podfm.ru/player.swf" /> </object><br /><br /><strong><strong><input class="sm-button" onclick="window.open('http://churchlw.podfm.ru/my/280/file/podfm_churchlw_my_20160613.mp3');" type="submit" value="Скачать" /> <input class="sm-button" onclick="javascript:history.go(-1)" type="submit" value="Назад" /> </strong></strong></p><p>&nbsp;</p>
+
+--
+
+//Родился, чтобы умереть встречаются дубли, старая и новая версия
+   
+"state": -2,
+
+--
+
+добавить mp3
+
+--
+
+
+
+
+
+
+
   {
     "id": 464,
     "title": "Воскресное служение-твердое основание — Олег Козлов 22.01.17",
