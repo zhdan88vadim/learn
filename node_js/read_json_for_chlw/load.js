@@ -152,23 +152,30 @@ function normalizeData(data) {
 
 var resultObj = {
     PostCategory: [{
-        name: 'sermons',
-        __ref: 'sermons'
+        "title": "Проповеди",
+        "name": "sermons",
+        "__ref": "sermons"
     }, {
-        name: 'materials',
-        __ref: 'materials'
+        "title": "Материалы",
+        "name": "materials",
+        "__ref": "materials"
     }, {
-        name: 'testimonies',
-        __ref: 'testimonies'
+        "title": "Свидетельства",
+        "name": "testimonies",
+        "__ref": "testimonies"
     }, {
-        name: 'news',
-        __ref: 'news'
+        "title": "Новости",
+        "name": "news",
+        "__ref": "news"
     }, {
-        name: 'service',
-        __ref: 'service'
+        "title": "Служения",
+        "name": "service",
+        "__ref": "service"
     }, {
-        name: 'welcome',
-        __ref: 'welcome'
+        showOnPage: false,
+        "title": "Добро пожаловать",
+        "name": "welcome",
+        "__ref": "welcome"
     }],
 
     Tag: [{
@@ -209,6 +216,7 @@ var resultObj = {
         __ref: 'molitva'
     }],
     User: [{
+        showOnPage: false,
         'name.full': 'admin@admin.com',
         email: 'admin@admin.com',
         password: 'admin',
@@ -234,7 +242,7 @@ function StartSecondStep() {
         newUser.__ref = safeName;
         newUser.password = '1qaz!QAZ__2wsx@WSX' + safeName;
         newUser.isAdmin = false;
-        newUser.email = safeName + '@' + safeName + '.com';
+        newUser.email = safeName.replace('_', '') + '@' + safeName.replace('_', '') + '.com';
         newUser.photo = {
             filename: safeName + '.jpg',
             size: 10500,
@@ -286,10 +294,14 @@ function StartSecondStep() {
         newPost.publishedDate = post.created;
         newPost['content.brief'] = post.introtext;
         newPost['content.extended'] = post.fulltext;
+        newPost.hits = post.hits || 0;
         //newPost.categories = [];
         newPost.categories = getCategoryRevById(post.sectionid);
         newPost.tags = [];
 
+        newPost.urlsPodfm = post.urls.podfm;
+        newPost.urls = post.urls.mp3;
+        
         if (newPost.categories) {
             resultObj.Post.push(newPost);
         }
