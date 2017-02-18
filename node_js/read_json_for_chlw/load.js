@@ -2,6 +2,9 @@ var fs = require('fs');
 
 var logStream = fs.createWriteStream('result_file.json', { 'flags': 'a', autoClose: true });
 var finalResultStream = fs.createWriteStream('final_result_file.json', { 'flags': 'a', autoClose: true });
+var allMp3Stream = fs.createWriteStream('allmp3_result_file.json', { 'flags': 'a', autoClose: true });
+
+var allPodfmWithoutMP3Stream = fs.createWriteStream('allPodfmWithoutMP3Urlsresult_file.json', { 'flags': 'a', autoClose: true });
 
 
 let cheerio = require('cheerio');
@@ -285,6 +288,9 @@ function StartSecondStep() {
         return ref;
     }
 
+    var allMp3Urls = [];
+    var allPodfmWithoutMP3Urls = [];
+
     articlesResult.forEach(function(post, i, arr) {
 
         var newPost = {};
@@ -301,7 +307,12 @@ function StartSecondStep() {
 
         newPost.urlsPodfm = post.urls.podfm;
         newPost.urls = post.urls.mp3;
-        
+
+        allMp3Urls = allMp3Urls.concat(post.urls.mp3);
+
+        if (post.urls.mp3.length !== post.urls.podfm.length) {
+            allPodfmWithoutMP3Urls = allPodfmWithoutMP3Urls.concat(post.urls.podfm);
+        }
         if (newPost.categories) {
             resultObj.Post.push(newPost);
         }
@@ -311,8 +322,15 @@ function StartSecondStep() {
 
     normalizeData(resultObj);
 
-    finalResultStream.write(JSON.stringify(resultObj));
-    finalResultStream.end();
+    //finalResultStream.write(JSON.stringify(resultObj));
+    //finalResultStream.end();
+
+    //allMp3Stream.write(JSON.stringify(allMp3Urls));
+    //allMp3Stream.end();
+
+
+    allPodfmWithoutMP3Stream.write(JSON.stringify(allPodfmWithoutMP3Urls));
+    allPodfmWithoutMP3Stream.end();
 }
 
 
