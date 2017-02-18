@@ -9,8 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.1.4",
     "cheerio": "^0.22.0",
     "get-urls": "^7.0.0",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "request": "^2.79.0",
+    "superagent": "^3.4.4",
+    "xml2js": "^0.4.17"
   }
 }

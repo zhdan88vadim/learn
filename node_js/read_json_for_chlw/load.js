@@ -1,4 +1,6 @@
 var fs = require('fs');
+//var request = require('superagent');
+
 
 var logStream = fs.createWriteStream('result_file.json', { 'flags': 'a', autoClose: true });
 var finalResultStream = fs.createWriteStream('final_result_file.json', { 'flags': 'a', autoClose: true });
@@ -334,11 +336,82 @@ function StartSecondStep() {
 }
 
 
-StartSecondStep();
+// StartSecondStep();
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var podfmUrls = ["http://churchlw.podfm.ru/my/2/data.xml", "http://churchlw.podfm.ru/my/3/data.xml", "http://churchlw.podfm.ru/my/4/data.xml", "http://churchlw.podfm.ru/my/1/data.xml", "http://churchlw.podfm.ru/my/5/data.xml", "http://churchlw.podfm.ru/my/6/data.xml", "http://churchlw.podfm.ru/my/7/data.xml", "http://churchlw.podfm.ru/my/8/data.xml", "http://churchlw.podfm.ru/my/9/data.xml", "http://churchlw.podfm.ru/my/10/data.xml", "http://churchlw.podfm.ru/my/12/data.xml", "http://churchlw.podfm.ru/my/13/data.xml", "http://churchlw.podfm.ru/my/14/data.xml", "http://churchlw.podfm.ru/my/15/data.xml", "http://churchlw.podfm.ru/my/16/data.xml", "http://churchlw.podfm.ru/my/17/data.xml", "http://churchlw.podfm.ru/my/18/data.xml", "http://churchlw.podfm.ru/my/19/data.xml", "http://churchlw.podfm.ru/my/20/data.xml", "http://churchlw.podfm.ru/my/21/data.xml", "http://churchlw.podfm.ru/my/22/data.xml", "http://churchlw.podfm.ru/my/24/data.xml", "http://churchlw.podfm.ru/my/25/data.xml", "http://churchlw.podfm.ru/my/26/data.xml", "http://churchlw.podfm.ru/my/27/data.xml", "http://churchlw.podfm.ru/my/28/data.xml", "http://churchlw.podfm.ru/my/29/data.xml", "http://churchlw.podfm.ru/my/30/data.xml", "http://churchlw.podfm.ru/my/31/data.xml", "http://churchlw.podfm.ru/my/32/data.xml", "http://churchlw.podfm.ru/my/33/data.xml", "http://churchlw.podfm.ru/my/34/data.xml", "http://churchlw.podfm.ru/my/35/data.xml", "http://churchlw.podfm.ru/my/36/data.xml", "http://churchlw.podfm.ru/my/38/data.xml", "http://churchlw.podfm.ru/my/37/data.xml", "http://churchlw.podfm.ru/my/39/data.xml", "http://churchlw.podfm.ru/my/40/data.xml", "http://churchlw.podfm.ru/my/41/data.xml", "http://churchlw.podfm.ru/my/42/data.xml", "http://churchlw.podfm.ru/my/43/data.xml", "http://churchlw.podfm.ru/my/44/data.xml", "http://churchlw.podfm.ru/my/45/data.xml", "http://churchlw.podfm.ru/my/46/data.xml", "http://churchlw.podfm.ru/my/47/data.xml", "http://churchlw.podfm.ru/my/48/data.xml", "http://churchlw.podfm.ru/my/49/data.xml", "http://churchlw.podfm.ru/my/50/data.xml", "http://churchlw.podfm.ru/my/51/data.xml", "http://churchlw.podfm.ru/my/52/data.xml", "http://churchlw.podfm.ru/my/53/data.xml", "http://churchlw.podfm.ru/my/55/data.xml", "http://churchlw.podfm.ru/my/56/data.xml", "http://churchlw.podfm.ru/my/57/data.xml", "http://churchlw.podfm.ru/my/58/data.xml", "http://churchlw.podfm.ru/my/59/data.xml", "http://churchlw.podfm.ru/my/60/data.xml", "http://churchlw.podfm.ru/my/61/data.xml", "http://churchlw.podfm.ru/my/62/data.xml", "http://churchlw.podfm.ru/my/63/data.xml", "http://churchlw.podfm.ru/my/64/data.xml", "http://churchlw.podfm.ru/my/65/data.xml", "http://churchlw.podfm.ru/my/66/data.xml", "http://churchlw.podfm.ru/my/67/data.xml", "http://churchlw.podfm.ru/my/68/data.xml", "http://churchlw.podfm.ru/my/69/data.xml", "http://churchlw.podfm.ru/my/70/data.xml", "http://churchlw.podfm.ru/my/71/data.xml", "http://churchlw.podfm.ru/my/72/data.xml", "http://churchlw.podfm.ru/my/73/data.xml", "http://churchlw.podfm.ru/my/74/data.xml", "http://churchlw.podfm.ru/my/75/data.xml", "http://churchlw.podfm.ru/my/76/data.xml", "http://churchlw.podfm.ru/my/77/data.xml", "http://churchlw.podfm.ru/my/78/data.xml", "http://churchlw.podfm.ru/my/79/data.xml", "http://churchlw.podfm.ru/my/80/data.xml", "http://churchlw.podfm.ru/my/81/data.xml", "http://churchlw.podfm.ru/my/82/data.xml", "http://churchlw.podfm.ru/my/83/data.xml", "http://churchlw.podfm.ru/my/84/data.xml", "http://churchlw.podfm.ru/my/85/data.xml", "http://churchlw.podfm.ru/my/86/data.xml", "http://churchlw.podfm.ru/my/87/data.xml", "http://churchlw.podfm.ru/my/88/data.xml", "http://churchlw.podfm.ru/my/89/data.xml", "http://churchlw.podfm.ru/my/91/data.xml", "http://churchlw.podfm.ru/my/92/data.xml", "http://churchlw.podfm.ru/my/93/data.xml", "http://churchlw.podfm.ru/my/94/data.xml", "http://churchlw.podfm.ru/my/95/data.xml", "http://churchlw.podfm.ru/my/96/data.xml", "http://churchlw.podfm.ru/my/97/data.xml", "http://churchlw.podfm.ru/my/98/data.xml", "http://churchlw.podfm.ru/my/99/data.xml", "http://churchlw.podfm.ru/my/100/data.xml", "http://churchlw.podfm.ru/my/101/data.xml", "http://churchlw.podfm.ru/my/102/data.xml", "http://churchlw.podfm.ru/my/103/data.xml", "http://churchlw.podfm.ru/my/104/data.xml", "http://churchlw.podfm.ru/my/105/data.xml", "http://churchlw.podfm.ru/my/106/data.xml", "http://churchlw.podfm.ru/my/107/data.xml", "http://churchlw.podfm.ru/my/108/data.xml", "http://churchlw.podfm.ru/my/110/data.xml", "http://churchlw.podfm.ru/my/109/data.xml", "http://churchlw.podfm.ru/my/111/data.xml", "http://churchlw.podfm.ru/my/112/data.xml", "http://churchlw.podfm.ru/my/113/data.xml", "http://churchlw.podfm.ru/my/114/data.xml", "http://churchlw.podfm.ru/my/115/data.xml", "http://churchlw.podfm.ru/my/116/data.xml", "http://churchlw.podfm.ru/my/117/data.xml", "http://churchlw.podfm.ru/my/118/data.xml", "http://churchlw.podfm.ru/my/119/data.xml", "http://churchlw.podfm.ru/my/120/data.xml", "http://churchlw.podfm.ru/my/121/data.xml", "http://churchlw.podfm.ru/my/122/data.xml", "http://churchlw.podfm.ru/my/123/data.xml", "http://churchlw.podfm.ru/my/126/data.xml", "http://churchlw.podfm.ru/my/124/data.xml", "http://churchlw.podfm.ru/my/128/data.xml", "http://churchlw.podfm.ru/my/127/data.xml", "http://churchlw.podfm.ru/my/129/data.xml", "http://churchlw.podfm.ru/my/130/data.xml", "http://churchlw.podfm.ru/my/131/data.xml", "http://churchlw.podfm.ru/my/132/data.xml", "http://churchlw.podfm.ru/my/133/data.xml", "http://churchlw.podfm.ru/my/134/data.xml", "http://churchlw.podfm.ru/my/135/data.xml", "http://churchlw.podfm.ru/my/136/data.xml", "http://churchlw.podfm.ru/my/137/data.xml", "http://churchlw.podfm.ru/my/138/data.xml", "http://churchlw.podfm.ru/my/139/data.xml", "http://churchlw.podfm.ru/my/140/data.xml", "http://churchlw.podfm.ru/my/142/data.xml", "http://churchlw.podfm.ru/my/143/data.xml", "http://churchlw.podfm.ru/my/144/data.xml", "http://churchlw.podfm.ru/my/145/data.xml", "http://churchlw.podfm.ru/my/146/data.xml", "http://churchlw.podfm.ru/my/147/data.xml", "http://churchlw.podfm.ru/my/228/data.xml", "http://churchlw.podfm.ru/my/229/data.xml", "http://churchlw.podfm.ru/my/230/data.xml", "http://churchlw.podfm.ru/my/230/data.xml"]
+
+
+var podfmDetail = [];
+
+const async = require('async');
+const request = require('request');
+const parseString = require('xml2js').parseString;
+
+function httpGet(url, callback) {
+    const options = {
+        url: url,
+        headers: {
+            'User-Agent': 'Mozilla/5.0'
+        }
+    };
+
+    console.log('run');
+
+    request(options,
+        function(err, res, body) {
+            if (err) return callback(err, body);
+
+            parseString(body, function(err, result) {
+
+                if (!err && result.file) {
+                    var item = {};
+                    item.originalUrl = url;
+                    item.data = result.file.$;
+                    podfmDetail.push(item);
+                } else {
+                    console.log('An error occuard!', url, body, result);
+                }
+
+                callback(err, body);
+            });
+        }
+    );
+}
+
+//podfmUrls.slice(1, 3)
+
+
+
+async.mapSeries(podfmUrls, httpGet, function(err, res) {
+    if (err) return console.log(err);
+
+    console.log(JSON.stringify(podfmDetail));
+
+});
+
+
+
+
+// <file pod="http://churchlw.podfm.ru/my/79/" url="http://churchlw.podfm.ru/my/79/file/podfm_churchlw_my_79.mp3?action=listen&" download_url="http://churchlw.podfm.ru/my/79/file/podfm_churchlw_my_79.mp3&" bitrate="56" duration="3612768" size="25290528" downloads="31" strParams="15,50per,99per"></file>
 
 
 
