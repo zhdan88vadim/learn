@@ -4,3 +4,5 @@ node_js/second_server/node_modules/
 node_js/podfm_upload/node_modules/
 *.log
 node_js/read_json_for_chlw/node_modules/
+js/angular/remoteControl/node_modules/
+js/angular/remoteControl/app/bower_components/

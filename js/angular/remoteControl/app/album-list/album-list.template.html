@@ -1,0 +1,10 @@
+
+<ul class="albums">
+  <li ng-repeat="album in $ctrl.albums | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail album-list-item">
+    <a href="#!/albums/{{album.key}}" class="thumb">
+      <img ng-src="{{album.mainImageUrl}}" alt="{{album.name}}" />
+    </a>
+    <a href="#!/albums/{{album.key}}">{{album.name}}</a>
+  </li>
+  <li my-new-album></li>
+</ul>
