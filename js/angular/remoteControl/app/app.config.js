@@ -2,16 +2,19 @@
 
 angular.
   module('galleryApp').
-  config(['$locationProvider' ,'$routeProvider',
+  config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
         when('/albums', {
-          template: '<album-list></album-list>'
+          template: '<gallery mode="list" editable="$resolve.editable"></gallery>',
+          resolve: {
+            editable: function ($http) { return false; }
+          }
         }).
         when('/albums/:albumKey', {
-          template: '<album-detail></album-detail>'
+          template: '<gallery mode="detail"></gallery>'
         }).
         otherwise('/albums');
     }

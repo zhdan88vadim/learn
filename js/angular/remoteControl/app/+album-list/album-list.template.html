@@ -1,0 +1,13 @@
+<ul class="albums">
+  <li ng-repeat="album in $ctrl.albums | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail album-list-item">
+    <a href="#!/albums/{{album.key}}" class="thumb">
+      <img ng-src="{{'http://localhost:3000/uploads/gallery/img/main_baner/preview/' + album.imgUrl}}" alt="{{album.name}}" />
+    </a>
+    <a href="#!/albums/{{album.key}}">{{album.name}}</a>
+    <a ng-if="album.editable" href="" ng-click="$ctrl.delete(album.key)">Delete</a>
+
+  </li>
+  <li add-album></li>
+</ul>
+
+<!--<div test-bind-to message="'my test property'"></div>-->

@@ -5,86 +5,64 @@ angular.module('core.gallery', ['ngResource']);
 
 
 angular.module('core.gallery')
-    .service('Gallery', ['$resource',
-        function ($resource) {
-            var albums = [
-                {
-                    name: 'album 0',
-                    key: 'album0',
-                    mainImageUrl: 'http://bolshepodarkov.ru/data/category/04298.jpg'
-                },
-                {
-                    name: 'album 1',
-                    key: 'album1',
-                    mainImageUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 2',
-                    key: 'album2',
-                    mainImageUrl: 'http://bolshepodarkov.ru/data/category/04298.jpg'
-                },
-                {
-                    name: 'album 3',
-                    key: 'album3',
-                    mainImageUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
+    .service('Gallery', ['$http', '$q',
+        function ($http, $q) {
+
+            var httpCallWrapper = function (callPromise, returnRawResponse, returnHeaders) {
+                var deferred = $q.defer();
+
+                function createErrorResult(status, data) {
+                    var result = {};
+                    result.status = status;
+                    result.errorMessage = data;
+                    result.errorDescription = null;
+                    return result;
                 }
-            ];
 
-            var images = [
-                {
-                    name: 'album 0',
-                    imgUrl: 'http://bolshepodarkov.ru/data/category/04298.jpg'
-                },
-                {
-                    name: 'album 1',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 2',
-                    imgUrl: 'http://bolshepodarkov.ru/data/category/04298.jpg'
-                },
-                {
-                    name: 'album 3',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 3',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 3',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 3',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 3',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                },
-                {
-                    name: 'album 3',
-                    imgUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
-                }
-            ];
+                callPromise.then(function (data, status, headers, config) {
 
+                    if (returnHeaders) {
+                        deferred.resolve(headers());
+                    }
 
+                    if (data === '') {
+                        deferred.resolve();
+                    }
+
+                    var response = data;
+
+                    deferred.resolve(response);
+
+                }, function (data, status, headers, config) {
+                    deferred.reject(createErrorResult(status, data));
+                });
+
+                return deferred.promise;
+            };
 
             this.getAll = function () {
-                return albums;
+                return httpCallWrapper($http.get('http://localhost:3000/api/gallery/'));
             }
 
-            this.getDetail = function (albumKey, callback) {
-                callback(images);
+            this.getDetail = function (albumKey) {
+                return httpCallWrapper($http.get('http://localhost:3000/api/gallery/' + albumKey));
             }
 
             this.addAlbum = function (name) {
                 albums.push({
                     name: name,
                     key: name,
-                    mainImageUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg'
+                    mainImageUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg',
+                    editable: true
                 });
+            }
+
+            this.deleteAlbum = function (key) {
+                console.log('deleteAlbum', key);
+            }
+
+            this.deleteImage = function (name) {
+                console.log('deleteImage', name);
             }
         }
     ]);

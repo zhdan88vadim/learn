@@ -1,0 +1,6 @@
+<ul class="photos">
+  <li ng-repeat="photo in $ctrl.photos" class="thumbnail photo-list-item">
+    <img ng-src="{{'http://localhost:3000/uploads/gallery/img/' + $ctrl.galleryName + '/preview/' + photo}}" alt="{{photo.name}}" />
+    <a ng-if="$ctrl.editable" href="" ng-click="$ctrl.delete(photo.name)">Delete</a>
+  </li>
+</ul>

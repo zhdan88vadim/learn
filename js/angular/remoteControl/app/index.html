@@ -15,15 +15,18 @@
     <script src="core/core.module.js"></script> 
 
     <script src="core/gallery.service.js"></script>
-    <script src="core/directives/my-new-album.directive.js"></script>
+    <script src="core/directives/add-album.directive.js"></script>
+    <script src="core/directives/test-bind-to-controller.directive.js"></script>
     
-    <script src="album-list/album-list.module.js"></script>
-    <script src="album-list/album-list.component.js"></script>
-    <script src="album-detail/album-detail.module.js"></script>
-    <script src="album-detail/album-detail.component.js"></script>
+    <script src="+album-list/album-list.module.js"></script>
+    <script src="+album-list/album-list.component.js"></script>
+    <script src="+album-detail/album-detail.module.js"></script>
+    <script src="+album-detail/album-detail.component.js"></script>
+    <script src="+gallery/gallery.module.js"></script>
+    <script src="+gallery/gallery.component.js"></script>
 
 </head>
-
+<!-- если альбом edtiable то можно в него добавлять фотки -->
 <body ng-app="galleryApp">
     <div class="view-container">
         <div ng-view class="view-frame"></div>
