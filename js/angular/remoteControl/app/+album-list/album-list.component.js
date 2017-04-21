@@ -1,7 +1,7 @@
 'use strict';
 
 // Register `albumList` component, along with its associated controller and template
-angular.module('albumList')
+angular.module('galleryComponents')
   .component('albumList', {
     templateUrl: '+album-list/album-list.template.html',
     controller: ['Gallery',
@@ -17,7 +17,9 @@ angular.module('albumList')
         };
 
         Gallery.getAll().then(function (response) {
-          self.albums = response.data.result.galleries;
+          var result = response.data.result;
+          self.albums = result.galleries;
+          self.dirs = result.dirs;
         });
 
         this.orderProp = 'age';

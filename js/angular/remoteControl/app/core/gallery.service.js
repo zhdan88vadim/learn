@@ -40,12 +40,14 @@ angular.module('core.gallery')
                 return deferred.promise;
             };
 
+
+
             this.getAll = function () {
-                return httpCallWrapper($http.get('http://localhost:3000/api/gallery/'));
+                return httpCallWrapper($http.get('http://localhost:3000/api/gallery/' + '?admin=true'));
             }
 
             this.getDetail = function (albumKey) {
-                return httpCallWrapper($http.get('http://localhost:3000/api/gallery/' + albumKey));
+                return httpCallWrapper($http.get('http://localhost:3000/api/gallery/' + albumKey + '?admin=true'));
             }
 
             this.addAlbum = function (name) {
@@ -55,6 +57,12 @@ angular.module('core.gallery')
                     mainImageUrl: 'http://www.prisnilos.su/kcfinder/upload/image/articles1/mashina12.jpg',
                     editable: true
                 });
+            }
+
+            this.updateAlbum = function (data) {
+                if (data.key || data.name) {
+                    return httpCallWrapper($http.post('http://localhost:3000/api/gallery/update' + '?admin=true', data));
+                }
             }
 
             this.deleteAlbum = function (key) {

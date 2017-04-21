@@ -1,7 +1,7 @@
 'use strict';
 
 // Register `albumList` component, along with its associated controller and template
-angular.module('galleryModule').
+angular.module('galleryComponents').
     component('gallery', {
         bindings: {
             // @ bindings can be used when the input is a string, especially when the value of the binding doesn't change.

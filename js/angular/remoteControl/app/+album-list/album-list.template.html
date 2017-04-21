@@ -1,13 +1,18 @@
-<ul class="albums">
-  <li ng-repeat="album in $ctrl.albums | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail album-list-item">
-    <a href="#!/albums/{{album.key}}" class="thumb">
-      <img ng-src="{{'http://localhost:3000/uploads/gallery/img/main_baner/preview/' + album.imgUrl}}" alt="{{album.name}}" />
-    </a>
-    <a href="#!/albums/{{album.key}}">{{album.name}}</a>
-    <a ng-if="album.editable" href="" ng-click="$ctrl.delete(album.key)">Delete</a>
+<div class="photo-albums">
 
-  </li>
-  <li add-album></li>
-</ul>
+  <ul class="polaroids">
+    <li ng-repeat="album in $ctrl.albums | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="album-list-item">
+      <a href="#!/albums/{{album.key}}" title="{{album.name}}">
+        <img ng-src="{{'http://localhost:3000/uploads/gallery/img/' + album.name + '/preview/' + album.imgUrl}}" alt="{{album.name}}" />
+        <div ng-if="album.editable" ng-click="$ctrl.update(album.key)" class="btn-normal update-album">Обновить</div>
+        <div ng-if="album.editable" ng-click="$ctrl.delete(album.key)" class="btn-normal delete-album">Удалить</div>
+      </a>
+    </li>
+    <li add-album></li>
+  </ul>
+  <div class="clear"></div>
+</div>
+
+<dir-list list="$ctrl.dirs"></dir-list>
 
 <!--<div test-bind-to message="'my test property'"></div>-->

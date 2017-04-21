@@ -1,6 +1,9 @@
-<ul class="photos">
-  <li ng-repeat="photo in $ctrl.photos" class="thumbnail photo-list-item">
-    <img ng-src="{{'http://localhost:3000/uploads/gallery/img/' + $ctrl.galleryName + '/preview/' + photo}}" alt="{{photo.name}}" />
-    <a ng-if="$ctrl.editable" href="" ng-click="$ctrl.delete(photo.name)">Delete</a>
-  </li>
-</ul>
+<div class="photo-album">
+    <div class="box" ng-repeat="photo in $ctrl.photos" class="thumbnail photo-list-item">
+    <div class="box-inner">
+        <div class="delete-img" ng-if="$ctrl.editable" ng-click="$ctrl.delete(photo)">X</div>
+         <a class="fancy-img" href="" rel="gallery", href="{{'http://localhost:3000/uploads/gallery/img/' + $ctrl.galleryName + photo}}"></a>
+        <img ng-src="{{'http://localhost:3000/uploads/gallery/img/' + $ctrl.galleryName + '/preview/' + photo}}" alt="{{photo.name}}" />
+    </div>
+    </li>
+</div>

@@ -17,7 +17,7 @@ angular.module('core').directive('addAlbum', ['Gallery', function ($galleryServi
             this.linkText = 'Add new album funct';
         },
         controllerAs: 'ctrl',
-        template: '<a ng-click="add()">{{ctrl.linkText}}</a>',
+        template: '<div ng-click="add()" class="polaroid-new-gallery">{{ctrl.linkText}}</div>',
         link: function (scope, element, attrs, albumListCtrl) {
             var a = $galleryService;
 

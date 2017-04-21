@@ -1,0 +1,9 @@
+<div ng-if="$ctrl.list.length" class="admin-gallery">
+  <span>Альбомы не включенные в базу данных:</span>
+  <ul class="dir-list">
+    <li ng-repeat="dir in $ctrl.list">
+      <div class="dir-name">{{dir}}</div>
+      <div ng-click="$ctrl.updateAlbum(dir)" class="dir-action btn-normal update-album">Добавить</div>
+    </li>
+  </ul>
+</div>
